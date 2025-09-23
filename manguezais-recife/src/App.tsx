@@ -10,19 +10,20 @@ import { Footer } from './components/Footer'
 
 function App() {
   return (
-    // Container principal para garantir que o footer fique na base da página
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <>
       <Navbar />
 
-      {/* Container do conteúdo com layout responsivo */}
       <Box
         sx={{
           display: 'flex',
-          flex: 1, // Faz este box expandir para preencher o espaço disponível
-          flexDirection: { xs: 'column', md: 'row' }, // Empilha em telas pequenas, lado a lado em telas grandes
+          flexDirection: 'row',
           alignItems: 'flex-start',
           gap: 2,
-          p: 2, // Padding geral em vez de px e pt
+          px: 2,
+          pt: 2,
+          pb: '70px', // Adiciona padding inferior para não sobrepor o rodapé fixo
+          minHeight: 'calc(100vh - 64px)',
+          // Apenas a imagem de fundo, sem filtro de desfoque
           backgroundImage: `url('/manguezal-bg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -30,7 +31,7 @@ function App() {
         }}
       >
         {/* Conteúdo principal */}
-        <Box sx={{ flex: 1, width: '100%' }}>
+        <Box sx={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mapa" element={<Mapa />} />
@@ -38,25 +39,24 @@ function App() {
           </Routes>
         </Box>
 
-        {/* Lateral direita com Sidebar e Info (responsiva) */}
+        {/* Lateral direita com Sidebar e Info */}
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             gap: 2,
             alignSelf: 'flex-start',
-            position: { md: 'sticky' }, // 'Sticky' apenas em telas médias e maiores
+            position: 'sticky',
             top: 72,
-            width: { xs: '100%', md: 320 }, // Largura total em telas pequenas, fixa em maiores
           }}
         >
           <SidebarCard />
           <AsideInfo />
         </Box>
       </Box>
-      
+
       <Footer />
-    </Box>
+    </>
   )
 }
 

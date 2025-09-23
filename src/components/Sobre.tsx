@@ -19,13 +19,26 @@ export const Sobre = () => {
             <Typography variant="h5" gutterBottom sx={{ mt: 4 }}>
                 Vídeo de Apresentação
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+            {/* Container responsivo para o vídeo */}
+            <Box sx={{
+                position: 'relative',
+                overflow: 'hidden',
+                width: '100%',
+                maxWidth: '800px',
+                margin: '2rem auto 0',
+                paddingTop: '56.25%', // Proporção 16:9 para o vídeo
+            }}>
                 <iframe 
-                    width="800" 
-                    height="500" 
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        border: 0,
+                    }}
                     src="https://www.youtube.com/embed/DCIur79ax8E?si=WEscAU2HKA_sZ0Hy" 
                     title="YouTube video player" 
-                    frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                     referrerPolicy="strict-origin-when-cross-origin" 
                     allowFullScreen
