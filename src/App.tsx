@@ -7,6 +7,7 @@ import { Box } from '@mui/material'
 import { SidebarCard } from './components/SideBarCard'
 import { AsideInfo } from './components/AsideInfo'
 import { Footer } from './components/Footer'
+import { GamePage } from './components/GamePage'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/mapa" element={<Mapa />} />
             <Route path="/sobre" element={<Sobre />} />
+            <Route path="/jogo" element={<GamePage />} />
           </Routes>
         </Box>
 
